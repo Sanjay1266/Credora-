@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../services/sync_service.dart';
 import '../../core/providers/auth_provider.dart';
 import '../../core/constants/user_role.dart';
 import 'user_dashboard.dart';
@@ -12,6 +13,9 @@ class DashboardScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Sync pending evidence when dashboard builds
+    SyncService().syncPendingEvidence();
+
     final role = ref.watch(userRoleProvider);
 
     switch (role) {
@@ -23,7 +27,9 @@ class DashboardScreen extends ConsumerWidget {
         return const AdminDashboard();
       default:
         return const Scaffold(
-          body: Center(child: Text('No role selected')),
+          body: Center(
+            child: Text('No role selected'),
+          ),
         );
     }
   }

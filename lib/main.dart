@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/theme/app_theme.dart';
 import 'router/app_router.dart';
 
-void main() {
-  runApp(const ProviderScope(child: CredoraApp()));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  await Hive.openBox('evidenceBox');
+
+  runApp(
+    const ProviderScope(
+      child: CredoraApp(),
+    ),
+  );
 }
 
 class CredoraApp extends StatelessWidget {
