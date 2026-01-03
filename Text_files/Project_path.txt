@@ -1,0 +1,26 @@
+lib/
+│
+├── core/
+│   ├── constants/
+│   ├── theme/
+│   └── utils/
+│
+├── features/
+│   ├── auth/
+│   │   ├── screens/
+│   │   ├── widgets/
+│   │   └── auth_provider.dart
+│   │
+│   ├── project_request/
+│   ├── verification/
+│   ├── dashboard/
+│   └── monitoring/
+│
+├── services/
+│   ├── api_service.dart
+│   ├── location_service.dart
+│   └── storage_service.dart
+│
+├── models/
+│
+└── main.dart
