@@ -7,7 +7,9 @@ class VerifierDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Verifier Dashboard')),
+      appBar: AppBar(
+        title: const Text('Verifier Dashboard'),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
