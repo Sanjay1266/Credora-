@@ -33,6 +33,19 @@ void updateVerification(
     box.put(id, data);
   }
 }
+void updateProjectAdminDecision(
+  String projectId,
+  String status,
+  String? remarks,
+) {
+  final data = box.get(projectId);
+  if (data != null) {
+    data['adminStatus'] = status;
+    data['adminRemarks'] = remarks;
+    box.put(projectId, data);
+  }
+}
+
 
   void markAsSynced(String id) {
     final data = box.get(id);

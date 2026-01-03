@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../admin/admin_project_list_screen.dart';
 
 class AdminDashboard extends StatelessWidget {
   const AdminDashboard({super.key});
@@ -7,10 +8,18 @@ class AdminDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Admin Dashboard')),
-      body: const Center(
-        child: Text(
-          'Admin Controls Coming Soon',
-          style: TextStyle(fontSize: 18),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Review Projects'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) =>
+                    const AdminProjectListScreen(),
+              ),
+            );
+          },
         ),
       ),
     );
