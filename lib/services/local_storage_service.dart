@@ -14,6 +14,25 @@ class LocalStorageService {
         .where((e) => !e.synced)
         .toList();
   }
+  List<EvidenceModel> getEvidenceByProject(String projectId) {
+  return box.values
+      .map((e) => EvidenceModel.fromMap(Map.from(e)))
+      .where((e) => e.projectId == projectId)
+      .toList();
+}
+
+void updateVerification(
+  String id,
+  String status,
+  String? remarks,
+) {
+  final data = box.get(id);
+  if (data != null) {
+    data['status'] = status;
+    data['remarks'] = remarks;
+    box.put(id, data);
+  }
+}
 
   void markAsSynced(String id) {
     final data = box.get(id);
