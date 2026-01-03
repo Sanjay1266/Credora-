@@ -7,10 +7,16 @@ import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../models/evidence_model.dart';
+import '../../models/project_model.dart';
 import '../../services/local_storage_service.dart';
 
 class CaptureEvidenceScreen extends StatefulWidget {
-  const CaptureEvidenceScreen({super.key});
+  final ProjectModel project;
+
+  const CaptureEvidenceScreen({
+    super.key,
+    required this.project,
+  });
 
   @override
   State<CaptureEvidenceScreen> createState() =>
@@ -74,6 +80,7 @@ class _CaptureEvidenceScreenState
   void _saveEvidence() {
     final evidence = EvidenceModel(
       id: const Uuid().v4(),
+      projectId: widget.project.id,
       imagePath: _image!.path,
       latitude: _position!.latitude,
       longitude: _position!.longitude,
@@ -96,12 +103,21 @@ class _CaptureEvidenceScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: const Text('Capture Field Evidence')),
+      appBar: AppBar(
+        title: const Text('Capture Field Evidence'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
+            Text(
+              'Project: ${widget.project.name}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: _loading ? null : _capturePhoto,
               icon: const Icon(Icons.camera_alt),

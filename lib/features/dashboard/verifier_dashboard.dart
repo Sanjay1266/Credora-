@@ -19,7 +19,7 @@ class VerifierDashboard extends StatelessWidget {
               subtitle: const Text('Capture geo-tagged evidence'),
               trailing: const Icon(Icons.camera_alt),
               onTap: () {
-                context.go('/capture-evidence');
+                context.go('/select-project');
               },
             ),
           ),

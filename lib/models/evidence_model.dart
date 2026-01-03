@@ -4,19 +4,24 @@ class EvidenceModel {
   final double latitude;
   final double longitude;
   final String timestamp;
+  final String projectId;
+
   bool synced;
 
-  EvidenceModel({
-    required this.id,
-    required this.imagePath,
-    required this.latitude,
-    required this.longitude,
-    required this.timestamp,
-    this.synced = false,
-  });
+EvidenceModel({
+  required this.id,
+  required this.projectId,
+  required this.imagePath,
+  required this.latitude,
+  required this.longitude,
+  required this.timestamp,
+  this.synced = false,
+});
+
 
   Map<String, dynamic> toMap() => {
         'id': id,
+        'projectId': projectId,
         'imagePath': imagePath,
         'latitude': latitude,
         'longitude': longitude,
@@ -32,6 +37,7 @@ class EvidenceModel {
       longitude: data['longitude'],
       timestamp: data['timestamp'],
       synced: data['synced'],
+      projectId: data['projectId'],
     );
   }
 }
