@@ -1,21 +1,47 @@
 name: credora
-description: A Flutter project.
-
-publish_to: 'none'
+description: Credora frontend application
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '^3.9.0'
+  sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
+  # State management
   flutter_riverpod: ^2.5.1
+
+  # Routing
   go_router: ^14.6.0
+
+  # HTTP (future backend integration)
   http: ^1.2.2
+
+  # Camera & media
   image_picker: ^1.1.2
+
+  # Location (GPS)
   geolocator: ^11.0.0
+
+  # Date & time formatting
   intl: ^0.19.0
-  
+
+  # Offline storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.2
+
+  # Network detection
+  connectivity_plus: ^6.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
