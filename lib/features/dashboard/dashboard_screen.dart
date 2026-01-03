@@ -31,6 +31,7 @@ class DashboardScreen extends StatelessWidget {
                 trailing: const Icon(Icons.analytics),
               ),
             ),
+            
           ],
         ),
       ),

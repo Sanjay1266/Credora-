@@ -1,4 +1,4 @@
-// Auto-generated file
+import '../features/verification/capture_evidence_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,6 +17,11 @@ final GoRouter appRouter = GoRouter(
       path: '/dashboard',
       builder: (context, state) => const DashboardScreen(),
     ),
+    GoRoute(
+  path: '/capture-evidence',
+  builder: (context, state) => const CaptureEvidenceScreen(),
+),
+
     GoRoute(
       path: '/create-project',
       builder: (context, state) => const CreateProjectScreen(),
